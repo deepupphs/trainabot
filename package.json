@@ -1,0 +1,32 @@
+{
+  "name": "trainabot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "env-cmd ./config/dev.env nodemon index.js",
+    "prod": "node index.js"
+  },
+  "author": "Deepak S",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.0.0",
+    "eslint": "^6.0.1",
+    "express": "^4.17.1",
+    "helmet": "^3.19.0",
+    "joi": "^14.3.1",
+    "mongoose": "^5.9.9",
+    "order-id": "^2.1.0",
+    "swagger-ui-express": "^4.1.4",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^8.0.2",
+    "cross-env": "^5.2.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.4"
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": " App",
+    "description": "API Documentation "
+  },
+  "schemes": ["https", "http"],
+  "host": "localhost:5000",
+  "basePath": "/api/v1/",
+
+  "paths": {
+ 
+    "/users/add-user": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "User creation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "create user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateUser"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/CreateUser"
+            }
+          },
+          "422": {
+            "description": "Validation error"
+          },
+          "424": {
+            "description": "Failed"
+          },
+          "409": {
+            "description": "Duplicate"
+          },
+          "500": {
+            "description": "Database errors"
+          }
+        }
+      }
+    },
+    "/users/get-all-user": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get all users",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "User Not found"
+          },
+          "500": {
+            "description": "Database errors"
+          }
+        }
+      }
+    },
+  
+    "/users/get-single-user/{ID}": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get Single users",
+        "parameters": [
+    
+          {
+            "in": "path",
+            "name": "ID",
+            "type": "string",
+            "description": "id",
+            "required": true
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Records Not found"
+          },
+          "500": {
+            "description": "Database errors"
+          }
+        }
+      }
+    },
+
+    "/users/create-order": {
+      "post": {
+        "tags": ["Orders"],
+        "summary": "Order creation",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "create order",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateOrder"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/CreateOrder"
+            }
+          },
+          "422": {
+            "description": "Validation error"
+          },
+          "424": {
+            "description": "Failed"
+          },
+          "409": {
+            "description": "Duplicate"
+          },
+          "500": {
+            "description": "Database errors"
+          }
+        }
+      }
+    },
+    "/users/get-all-order": {
+      "get": {
+        "tags": ["Orders"],
+        "summary": "Get all Orders",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "User Not found"
+          },
+          "500": {
+            "description": "Database errors"
+          }
+        }
+      }
+    },
+  
+    "/users/get-single-order/{ID}": {
+      "get": {
+        "tags": ["Orders"],
+        "summary": "Get Single Order",
+        "parameters": [
+    
+          {
+            "in": "path",
+            "name": "ID",
+            "type": "string",
+            "description": "id",
+            "required": true
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Records Not found"
+          },
+          "500": {
+            "description": "Database errors"
+          }
+        }
+      }
+    },
+
+    "/users/get-all-user-order": {
+      "get": {
+        "tags": ["Orders"],
+        "summary": "Get all User Orders",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "User Not found"
+          },
+          "500": {
+            "description": "Database errors"
+          }
+        }
+      }
+    },
+  
+    "/users/get-single-user-order/{email}": {
+      "get": {
+        "tags": ["Orders"],
+        "summary": "Get Single User Order Details",
+        "parameters": [
+    
+          {
+            "in": "path",
+            "name": "email",
+            "type": "string",
+            "description": "email",
+            "required": true
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Records Not found"
+          },
+          "500": {
+            "description": "Database errors"
+          }
+        }
+      }
+    }
+  },
+  
+
+  "definitions": {
+
+    "CreateUser": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "user_location": {
+          "type": "string"
+        },
+        "designation": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        }
+      }
+    },
+
+    "CreateOrder": {
+      "type": "object",
+      "properties": {
+        "user_name": {
+          "type": "string"
+        },
+        "user_email": {
+          "type": "string"
+        },
+        "user_phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "order_value": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
